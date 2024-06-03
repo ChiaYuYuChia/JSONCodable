@@ -21,5 +21,6 @@ case .to(let encoder): // 編碼
 使用：
 
 ex.
+
 let optionInfo: OptionInfo? = .toJsonInfo(assetName: "AssetName") // 單一物件解析
 let optionInfos: [OptionInfo]? .toJsonInfos(assetName: "AssetName") // 陣列物件解析
