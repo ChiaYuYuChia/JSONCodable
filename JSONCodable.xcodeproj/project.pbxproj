@@ -56,6 +56,7 @@
 		6A8033762C0D5A7000B5AF66 = {
 			isa = PBXGroup;
 			children = (
+				6A1047F82C0D8F1F0097A9C0 /* Sources */,
 				6A8033812C0D5A7000B5AF66 /* JSONCodable */,
 				6A8033802C0D5A7000B5AF66 /* Products */,
 			);
@@ -72,7 +73,6 @@
 		6A8033812C0D5A7000B5AF66 /* JSONCodable */ = {
 			isa = PBXGroup;
 			children = (
-				6A1047F82C0D8F1F0097A9C0 /* Sources */,
 				6A8033952C0D5AF100B5AF66 /* Demo */,
 				6A8033822C0D5A7000B5AF66 /* JSONCodableApp.swift */,
 				6A8033842C0D5A7000B5AF66 /* ContentView.swift */,
