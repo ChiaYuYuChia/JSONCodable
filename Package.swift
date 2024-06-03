@@ -26,16 +26,12 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        targets: [
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "JSONCodable",
-            exclude: ["README.md"],
-            resources: [
-            ]
-        ),
-        .binaryTarget(
-            name: "JSONCodable",
-            url: "https://github.com/ChiaYuYuChia/JSONCodable/archive/refs/tags/v1.0.0.zip",
-            checksum: "The checksum of the XCFramework inside the ZIP archive."
-        )
-    ]
+ 	        path: "JSONCodable/General"),
+    ],
+    swiftLanguageVersions: [.v5]
 )
