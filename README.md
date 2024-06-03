@@ -8,16 +8,16 @@ ex.
 
 case .from(let decoder): // 解析
             
-let container = container(coder: decoder, type: CodingKeys.self)
+            let container = container(coder: decoder, type: CodingKeys.self)
             
-title = container?.parse(key: .title)
+            title = container?.parse(key: .title)
 
 
 case .to(let encoder): // 編碼
             
-var container = container(coder: encoder, type: CodingKeys.self)
+            var container = container(coder: encoder, type: CodingKeys.self)
             
-container.parse(value: title, key: .title)
+            container.parse(value: title, key: .title)
 
 
 
@@ -25,6 +25,6 @@ container.parse(value: title, key: .title)
 
 ex.
 
-let optionInfo: OptionInfo? = .toJsonInfo(jsonString: "json value ... ") // 單一物件解析
+            let optionInfo: OptionInfo? = .toJsonInfo(jsonString: "json value ... ") // 單一物件解析
 
-let optionInfos: [OptionInfo]? = .toJsonInfos(jsonString: "json value ... ") // 陣列物件解析
+            let optionInfos: [OptionInfo]? = .toJsonInfos(jsonString: "json value ... ") // 陣列物件解析
