@@ -25,6 +25,6 @@ container.parse(value: title, key: .title)
 
 ex.
 
-let optionInfo: OptionInfo? = .toJsonInfo(assetName: "AssetName") // 單一物件解析
+let optionInfo: OptionInfo? = .toJsonInfo(jsonString: "json value ... ") // 單一物件解析
 
-let optionInfos: [OptionInfo]? = .toJsonInfos(assetName: "AssetName") // 陣列物件解析
+let optionInfos: [OptionInfo]? = .toJsonInfos(jsonString: "json value ... ") // 陣列物件解析
