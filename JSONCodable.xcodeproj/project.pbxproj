@@ -37,18 +37,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A1047F72C0D8F1F0097A9C0 /* Codable */ = {
+		6A1047F72C0D8F1F0097A9C0 /* JSONCodable */ = {
 			isa = PBXGroup;
 			children = (
 				6A1047F62C0D8F1F0097A9C0 /* JSONCodable.swift */,
 			);
-			path = Codable;
+			path = JSONCodable;
 			sourceTree = "<group>";
 		};
 		6A1047F82C0D8F1F0097A9C0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6A1047F72C0D8F1F0097A9C0 /* Codable */,
+				6A1047F72C0D8F1F0097A9C0 /* JSONCodable */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
