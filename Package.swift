@@ -23,6 +23,7 @@ let package = Package(
         .target(
             name: "JSONCodable",
             exclude: ["README.md"],
+            path: "JSONCodable/Sources"
             resources: [
             ]
         ),
