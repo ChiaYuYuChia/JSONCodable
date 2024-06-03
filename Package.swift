@@ -1,18 +1,12 @@
-//
-//  Package.swift
-//  JSONCodable
-//
-//  Created by ChiaYu Chang on 2024/6/3.
-//
-
 // swift-tools-version:5.3
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "JSONCodable",
     platforms: [
-        .macOS(.v10_14), .iOS(.v14)
+        .macOS(.v10_12), .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -29,13 +23,9 @@ let package = Package(
         .target(
             name: "JSONCodable",
             exclude: ["README.md"],
+            path: "JSONCodable/General/Codable",
             resources: [
             ]
         ),
-        .binaryTarget(
-            name: "JSONCodable",
-            url: "https://github.com/ChiaYuYuChia/JSONCodable/archive/refs/tags/v1.0.0.zip",
-            checksum: "The checksum of the XCFramework inside the ZIP archive."
-        )
     ]
 )
