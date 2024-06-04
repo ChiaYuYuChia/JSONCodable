@@ -7,8 +7,18 @@
 
 import Foundation
 
+/** 解析 共用介面 */
+protocol ParseProtocol {
+    
+    func onParse(parse: JSONCodable.Parse)
+}
+
 /** Json 解析元件 */
 class JSONCodable: Codable {
+    
+    // TODO: - Yu 2024/06/03 參考 https://stackoverflow.com/questions/44655562/how-to-exclude-properties-from-swift-codable
+    
+    // TODO: - Yu 2024/06/04 參考 https://www.avanderlee.com/swift/reflection-how-mirror-works/
     
     /** 解析/編碼  */
     enum Parse {
@@ -34,6 +44,19 @@ class JSONCodable: Codable {
     /** 解析/編碼  */
     func onParse(parse: JSONCodable.Parse) {
         
+        
+    }
+}
+
+// MARK:-
+
+private extension JSONCodable {
+    
+    func toMirror() -> Mirror {
+        
+        let mirror = Mirror(reflecting: self)
+        
+        return mirror
     }
 }
 

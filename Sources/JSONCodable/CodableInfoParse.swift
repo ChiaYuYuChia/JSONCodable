@@ -7,31 +7,18 @@
 
 import Foundation
 
-/** Codable 解析器 */
+/** Codable 物件 解析器 */
 @propertyWrapper
-class CodableInfoParse<T> {
+class CodableInfoParse<T>: ParseProtocol {
     
     private var key: String // json key
-    private var defaultValue: T? // 預設值
-    private var actualValue: T? // 實際值
     
-    var wrappedValue: T? { // 包裝值
+    var wrappedValue: T // 包裝值
         
-        get {
-            
-            return actualValue ?? defaultValue
-        }
-        
-        set(value) {
-            
-            actualValue = value
-        }
-    }
-        
-    init(key: String, defaultValue: T? = nil) {
+    init(key: String, defaultValue: T) {
         
         self.key = key
-        self.defaultValue = defaultValue
+        self.wrappedValue = defaultValue
     }
     
     /** 解析/編碼  */

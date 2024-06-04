@@ -6,3 +6,23 @@
 //
 
 import Foundation
+
+/** Codable 陣列 解析器 */
+@propertyWrapper
+class CodableInfosParse<T>: ParseProtocol {
+    
+    private var key: String // json key
+    
+    var wrappedValue: [T] // 包裝值
+        
+    init(key: String, defaultValue: [T] = []) {
+        
+        self.key = key
+        self.wrappedValue = defaultValue
+    }
+    
+    /** 解析/編碼  */
+    func onParse(parse: JSONCodable.Parse) {
+        
+    }
+}
