@@ -14,14 +14,14 @@ struct CodingKeyInfo: CodingKey {
     
     var stringValue: String
     
-    init?(stringValue: String) {
+    init(stringValue: String) {
         
         self.stringValue = stringValue
     }
     
     var intValue: Int?
     
-    init?(intValue: Int) {
+    init(intValue: Int) {
         
         self.init(stringValue: "\(intValue)")
         

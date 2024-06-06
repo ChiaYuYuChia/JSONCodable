@@ -9,7 +9,7 @@ import Foundation
 
 /** Codable 物件 解析器（可選） */
 @propertyWrapper
-class CodableInfoOptionalParse<T>: ParseProtocol {
+class CodableInfoOptionalParse<T: Codable>: ParseProtocol {
     
     private var key: String // json key
     private var defaultValue: T? // 預設值
@@ -43,13 +43,13 @@ class CodableInfoOptionalParse<T>: ParseProtocol {
             
             let container = try? decoder.container(keyedBy: CodingKeyInfo.self)
             
-            
+            actualValue = container?.parse(key: .init(stringValue: key))
             
         case .to(let encoder): // 編碼
             
-            let container = encoder.container(keyedBy: CodingKeyInfo.self)
+            var container = encoder.container(keyedBy: CodingKeyInfo.self)
             
-            
+            container.parse(value: wrappedValue, key: .init(stringValue: key))
         }
     }
 }

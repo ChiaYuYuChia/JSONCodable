@@ -44,7 +44,35 @@ class JSONCodable: Codable {
     /** 解析/編碼  */
     func onParse(parse: JSONCodable.Parse) {
         
+        JSONCodable.assistParse(info: self, parse: parse) // 輔助解析
+    }
+}
+
+// MARK:-
+
+extension JSONCodable {
+    
+    /** 輔助解析 for ParseProtocol */
+    static func assistParse(info: Any?, parse: JSONCodable.Parse) {
         
+        if let info = info {
+            
+            let mirror = JSONCodable.toMirror(info: info)
+            
+            let children = mirror.children
+            
+            if !children.isEmpty {
+                
+                for (_, value) in children {
+                    
+                    // 包含介面實作項目
+                    if let parseProtocol = value as? ParseProtocol {
+                        
+                        parseProtocol.onParse(parse: parse) // 解析
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -52,9 +80,10 @@ class JSONCodable: Codable {
 
 private extension JSONCodable {
     
-    func toMirror() -> Mirror {
+    /** 轉換 Mirror */
+    static func toMirror(info: Any) -> Mirror {
         
-        let mirror = Mirror(reflecting: self)
+        let mirror = Mirror(reflecting: info)
         
         return mirror
     }

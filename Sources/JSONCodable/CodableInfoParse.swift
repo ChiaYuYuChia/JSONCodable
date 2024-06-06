@@ -9,7 +9,7 @@ import Foundation
 
 /** Codable 物件 解析器 */
 @propertyWrapper
-class CodableInfoParse<T>: ParseProtocol {
+class CodableInfoParse<T: Codable>: ParseProtocol {
     
     private var key: String // json key
     
@@ -24,5 +24,19 @@ class CodableInfoParse<T>: ParseProtocol {
     /** 解析/編碼  */
     func onParse(parse: JSONCodable.Parse) {
         
+        switch parse {
+            
+        case .from(let decoder): // 解析
+            
+            let container = try? decoder.container(keyedBy: CodingKeyInfo.self)
+            
+            wrappedValue = container?.parse(key: .init(stringValue: key)) ?? wrappedValue
+            
+        case .to(let encoder): // 編碼
+            
+            var container = encoder.container(keyedBy: CodingKeyInfo.self)
+            
+            container.parse(value: wrappedValue, key: .init(stringValue: key))
+        }
     }
 }
