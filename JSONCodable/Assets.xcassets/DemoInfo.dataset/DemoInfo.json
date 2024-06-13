@@ -6,12 +6,14 @@
         {
             "ID": "InfoSub_1_1",
             "Title": "Sub Info 1-1",
-            "Description": "子項目解析 1-1"
+            "Description": "子項目解析 1-1",
+            "Sort": 1
         },
         {
             "ID": "InfoSub_1_2",
             "Title": "Sub Info 1-2",
-            "Description": "子項目解析 1-2"
+            "Description": "子項目解析 1-2",
+            "Sort": 2
         }
     ]
 }

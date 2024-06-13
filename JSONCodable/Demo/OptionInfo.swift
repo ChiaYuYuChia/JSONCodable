@@ -10,45 +10,36 @@ import Foundation
 /** 選項資訊 */
 class OptionInfo: JSONCodable {
     
+    @CodableInfoOptionalParse(key: "ID")
     var onlyIdentify: String? // 唯一識別
+    
+    @CodableInfoOptionalParse(key: "OptionType", defaultValue: .unknown)
+    var optionType: OptionInfo.OptionType? // 選項類型, enum
+    
+    @CodableInfoOptionalParse(key: "Title")
     var title: String? // 選項名稱
+    
+    @CodableInfoOptionalParse(key: "Description")
     var description: String? // 描述
     
-    var subs: [OptionInfo]? // 子選項
+    @CodableInfoParse(key: "Sort", defaultValue: 0)
+    var sortIndex: Int // 排序, not Optional
     
-    /** 轉換 Key */
-    private enum CodingKeys: String, CodingKey {
-        
-        case onlyIdentify = "ID"
-        case title = "Title"
-        case description = "Description"
-        case subs = "Subs"
-    }
+    @CodableInfosOptionalParse(key: "Subs")
+    var subs: [OptionInfo]? // 子選項, array
+}
+
+// MARK: -
+
+extension OptionInfo {
     
-    /** 解析/編碼  */
-    override func onParse(parse: OptionInfo.Parse) {
+    /** 選項類型 */
+    enum OptionType: String, Codable {
         
-        super.onParse(parse: parse)
-        
-        switch parse {
-            
-        case .from(let decoder): // 解析
-            
-            let container = container(coder: decoder, type: CodingKeys.self)
-            
-            onlyIdentify = container?.parse(key: .onlyIdentify)
-            title = container?.parse(key: .title)
-            description = container?.parse(key: .description)
-            subs = container?.parse(key: .subs)
-            
-        case .to(let encoder): // 編碼
-            
-            var container = container(coder: encoder, type: CodingKeys.self)
-            
-            container.parse(value: onlyIdentify, key: .onlyIdentify)
-            container.parse(value: title, key: .title)
-            container.parse(value: description, key: .description)
-            container.parse(value: subs, key: .subs)
-        }
+    case unknown = "Unknown" // 未知
+    case option = "Option" // 選項
+    case subOption = "SubOption" // 子選項
     }
 }
+
+// MARK: -

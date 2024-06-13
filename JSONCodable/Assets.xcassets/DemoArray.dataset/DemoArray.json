@@ -3,11 +3,14 @@
         "ID": "Array_Info_1",
         "Title": "Array Info 1",
         "Description": "陣列解析 1",
+        "Sort": 1,
+        "OptionType": "Option",
         "Subs": [
             {
                 "ID": "Array_Sub_Info_1_1",
                 "Title": "Array Sub Info 1-1",
-                "Description": "陣列子項目解析 1-1"
+                "Description": "陣列子項目解析 1-1",
+                "OptionType": "SubOption"
             }
         ]
     },
@@ -15,11 +18,14 @@
         "ID": "Array_Info_2",
         "Title": "Array Info 2",
         "Description": "陣列解析 2",
+        "OptionType": "Option",
+        "Sort": 2,
         "Subs": [
             {
                 "ID": "Array_Sub_Info_2_1",
                 "Title": "Array Sub Info 2-1",
-                "Description": "陣列子項目解析 2-1"
+                "Description": "陣列子項目解析 2-1",
+                "OptionType": "SubOption"
             }
         ]
     }
