@@ -1,30 +1,41 @@
 # JSONCodable
 
-輕量化 Json Codable 解析
+Swift Json Codable Parse
 
-前置作業：繼承 JSONCodable 後，覆寫 override func onParse(parse: OptionInfo.Parse) 解析與編碼 方法
+JsonInfo inheritance JSONCodable class
 
-ex. 
+String Parse ex. 
 
-case .from(let decoder): // 解析
-            
-            let container = container(coder: decoder, type: CodingKeys.self)
-            
-            title = container?.parse(key: .title)
+            @CodableInfoOptionalParse(key: "JsonKey", defaultValue: "Default Value")
+            var onlyIdentify: String? 
 
+Enum Parse ex. 
 
-case .to(let encoder): // 編碼
-            
-            var container = container(coder: encoder, type: CodingKeys.self)
-            
-            container.parse(value: title, key: .title)
+            @CodableInfoOptionalParse(key: "JsonKey", defaultValue: .defaultType)
+            var optionType: OptionInfo.OptionType? 
 
+Not Optional Parse ex.
 
+            @CodableInfoParse(key: "JsonKey", defaultValue: 0)
+            var sortIndex: Int 
 
-使用：
+Array Optional Parse ex.
 
-ex.
+            @CodableInfosOptionalParse(key: "Subs")
+            var subs: [JsonInfo]? 
 
-            let optionInfo: OptionInfo? = .toJsonInfo(jsonString: "json value ... ") // 單一物件解析
+String To Json Info ex. 
 
-            let optionInfos: [OptionInfo]? = .toJsonInfos(jsonString: "json value ... ") // 陣列物件解析
+            let info: JsonInfo? = .toJsonInfo(jsonString: "Json Value")
+
+String To Json Array ex. 
+
+            let infos: [JsonInfo]? = .toJsonInfos(jsonString: "Json Value")
+
+Json Info To String ex. 
+
+            info.toJSONString(outputFormatting: .prettyPrinted)
+
+Json Info To Dictionary ex. 
+
+            info.toJSON()
